@@ -16,40 +16,35 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     const data = await response.json();
-    const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = '';
+    const resultTbody = document.getElementById('result');
 
     if (data.error) {
-      resultDiv.innerHTML = `<p>${data.error}</p>`;
+      resultTbody.innerHTML += `<tr><td colspan="5">${data.error}</td></tr>`;
     } else {
       const guessedBrawler = data.guessedBrawler;
       const result = data.result;
       const comparisons = data.comparisons;
 
-      resultDiv.innerHTML = `
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Rarity</th>
-            <th>Wallbreaker</th>
-            <th>Base Health</th>
-            <th>Release Year</th>
-          </tr>
-          <tr>
-            <td>${guessedBrawler.name}</td>
-            <td class="${result.rarity ? 'correct' : 'incorrect'}">${guessedBrawler.rarity}</td>
-            <td class="${result.wallbreaker ? 'correct' : 'incorrect'}">${guessedBrawler.wallbreaker ? 'Yes' : 'No'}</td>
-            <td class="${result.base_health ? 'correct' : 'incorrect'}">${guessedBrawler.base_health} <span class="${comparisons.base_health === '↑' ? 'up' : comparisons.base_health === '↓' ? 'down' : ''}">${comparisons.base_health}</span></td>
-            <td class="${result.release_year ? 'correct' : 'incorrect'}">${guessedBrawler.release_year} <span class="${comparisons.release_year === '↑' ? 'up' : comparisons.release_year === '↓' ? 'down' : ''}">${comparisons.release_year}</span></td>
-          </tr>
-        </table>`;
+      const row = document.createElement('tr');
 
-        if (result.name && result.rarity && result.wallbreaker && result.base_health && result.release_year) {
-          jsConfetti.addConfetti()
-          setTimeout(function() {
-            location.reload();
-        }, 4000);
-        }
+      row.innerHTML = `
+        <td>${guessedBrawler.name}</td>
+        <td class="${result.rarity ? 'correct' : 'incorrect'}">${guessedBrawler.rarity}</td>
+        <td class="${result.wallbreaker ? 'correct' : 'incorrect'}">${guessedBrawler.wallbreaker ? 'Yes' : 'No'}</td>
+        <td class="${result.base_health ? 'correct' : 'incorrect'}">${guessedBrawler.base_health} <span class="${comparisons.base_health === '↑' ? 'up' : comparisons.base_health === '↓' ? 'down' : ''}">${comparisons.base_health}</span></td>
+        <td class="${result.release_year ? 'correct' : 'incorrect'}">${guessedBrawler.release_year} <span class="${comparisons.release_year === '↑' ? 'up' : comparisons.release_year === '↓' ? 'down' : ''}">${comparisons.release_year}</span></td>
+      `;
+
+      resultTbody.appendChild(row);
+
+      if (result.name && result.rarity && result.wallbreaker && result.base_health && result.release_year) {
+        jsConfetti.addConfetti()
+        setTimeout(function() {
+          location.reload();
+      }, 4000);
+      }
     }
+
+    document.getElementById('guessForm').reset();
   });
 });
