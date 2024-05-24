@@ -47,7 +47,12 @@ app.post('/guess', async (req, res) => {
     release_year: guessedBrawler.release_year === selectedBrawler.release_year,
   };
 
-  res.json({ result, guessedBrawler });
+  const comparisons = {
+    base_health: guessedBrawler.base_health > selectedBrawler.base_health ? '↓' : guessedBrawler.base_health < selectedBrawler.base_health ? '↑' : '',
+    release_year: guessedBrawler.release_year > selectedBrawler.release_year ? '↓' : guessedBrawler.release_year < selectedBrawler.release_year ? '↑' : ''
+  };
+
+  res.json({ result, guessedBrawler, comparisons });
 });
 
 const PORT = process.env.PORT || 3000;
