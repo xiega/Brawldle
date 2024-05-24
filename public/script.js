@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
   await fetch('/start');
 
+  const jsConfetti = new JSConfetti();
+
   document.getElementById('guessForm').addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -40,9 +42,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             <td class="${result.base_health ? 'correct' : 'incorrect'}">${guessedBrawler.base_health} <span class="${comparisons.base_health === '↑' ? 'up' : comparisons.base_health === '↓' ? 'down' : ''}">${comparisons.base_health}</span></td>
             <td class="${result.release_year ? 'correct' : 'incorrect'}">${guessedBrawler.release_year} <span class="${comparisons.release_year === '↑' ? 'up' : comparisons.release_year === '↓' ? 'down' : ''}">${comparisons.release_year}</span></td>
           </tr>
-        </table>
-      `;
-      console.log('dupa');
+        </table>`;
+
+        if (result.name && result.rarity && result.wallbreaker && result.base_health && result.release_year) {
+          jsConfetti.addConfetti()
+          setTimeout(function() {
+            location.reload();
+        }, 4000);
+        }
     }
   });
 });

@@ -25,6 +25,7 @@ async function getRandomBrawler() {
 // Endpoint do inicjalizacji gry
 app.get('/start', async (req, res) => {
   selectedBrawler = await getRandomBrawler();
+  console.log(selectedBrawler);
   res.json({ message: 'Game started! Try to guess the brawler.' });
 });
 
