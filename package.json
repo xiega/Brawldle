@@ -2,8 +2,12 @@
   "dependencies": {
     "@prisma/client": "^5.14.0",
     "body-parser": "^1.20.2",
-    "ejs": "^3.1.10",
+    "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
+    "mysql2": "^3.9.7"
+  },
+  "devDependencies": {
     "prisma": "^5.14.0"
   }
 }
