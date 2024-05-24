@@ -25,11 +25,22 @@ document.addEventListener('DOMContentLoaded', async () => {
       const comparisons = data.comparisons;
 
       resultDiv.innerHTML = `
-        <p>Name: <span class="${result.name ? 'correct' : 'incorrect'}">${guessedBrawler.name}</span></p>
-        <p>Rarity: <span class="${result.rarity ? 'correct' : 'incorrect'}">${guessedBrawler.rarity}</span></p>
-        <p>Wallbreaker: <span class="${result.wallbreaker ? 'correct' : 'incorrect'}">${guessedBrawler.wallbreaker}</span></p>
-        <p>Base Health: <span class="${result.base_health ? 'correct' : 'incorrect'}">${guessedBrawler.base_health} ${comparisons.base_health}</span></p>
-        <p>Release Year: <span class="${result.release_year ? 'correct' : 'incorrect'}">${guessedBrawler.release_year} ${comparisons.release_year}</span></p>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Rarity</th>
+            <th>Wallbreaker</th>
+            <th>Base Health</th>
+            <th>Release Year</th>
+          </tr>
+          <tr>
+            <td>${guessedBrawler.name}</td>
+            <td class="${result.rarity ? 'correct' : 'incorrect'}">${guessedBrawler.rarity}</td>
+            <td class="${result.wallbreaker ? 'correct' : 'incorrect'}">${guessedBrawler.wallbreaker ? 'Yes' : 'No'}</td>
+            <td class="${result.base_health ? 'correct' : 'incorrect'}">${guessedBrawler.base_health} <span class="${comparisons.base_health === '↑' ? 'up' : comparisons.base_health === '↓' ? 'down' : ''}">${comparisons.base_health}</span></td>
+            <td class="${result.release_year ? 'correct' : 'incorrect'}">${guessedBrawler.release_year} <span class="${comparisons.release_year === '↑' ? 'up' : comparisons.release_year === '↓' ? 'down' : ''}">${comparisons.release_year}</span></td>
+          </tr>
+        </table>
       `;
     }
   });
