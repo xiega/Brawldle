@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           </tr>
         </table>
       `;
+      console.log('dupa');
     }
   });
 });
