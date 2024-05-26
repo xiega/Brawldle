@@ -22,6 +22,16 @@ async function getRandomBrawler() {
   return brawler[0];
 }
 
+app.get('/brawlers', async (req, res) => {
+  try {
+    const brawlers = await prisma.brawlers.findMany();
+    const brawlerNames = brawlers.map(brawler => brawler.name);
+    res.json(brawlerNames);
+  } catch (error) {
+    console.error('Error fetching brawler names:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 // Endpoint do inicjalizacji gry
 app.get('/start', async (req, res) => {
   selectedBrawler = await getRandomBrawler();
@@ -34,7 +44,7 @@ app.post('/guess', async (req, res) => {
   const { name } = req.body;
   const guessedBrawler = await prisma.brawlers.findFirst({
     where: { name }
-  });
+});
 
   if (!guessedBrawler) {
     return res.json({ error: 'Brawler not found' });

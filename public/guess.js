@@ -27,8 +27,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       const row = document.createElement('tr');
 
+      // Replace guessedBrawler.name with an image
       row.innerHTML = `
-        <td>${guessedBrawler.name}</td>
+        <td class="pin-td"><img class="pin" src="${guessedBrawler.image_url}" alt="${guessedBrawler.name}" width="100"></td>
         <td class="${result.rarity ? 'correct' : 'incorrect'}">${guessedBrawler.rarity}</td>
         <td class="${result.wallbreaker ? 'correct' : 'incorrect'}">${guessedBrawler.wallbreaker ? 'Yes' : 'No'}</td>
         <td class="${result.base_health ? 'correct' : 'incorrect'}">${guessedBrawler.base_health} <span class="${comparisons.base_health === '↑' ? 'up' : comparisons.base_health === '↓' ? 'down' : ''}">${comparisons.base_health}</span></td>
