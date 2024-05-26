@@ -2,6 +2,8 @@
 
 ![Brawdle](https://sweezy-cursors.com/wp-content/uploads/cursor/brawl-stars-logo-animated/brawl-stars-logo-animated-custom-cursor.gif)
 
+## Opis
+
 Brawdle to projekt stworzony dla fanów Brawl Stars, którzy chcą sprawdzić swoją spostrzegawczość i znajomość postaci w grze. Gra polega na odgadywaniu zadymiarza na podstawie podpowiedzi i cech charakterystycznych, które zostaną podane.
 
 ## Jak grać?
