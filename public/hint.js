@@ -19,4 +19,3 @@ async function fetchBrawlerNames() {
 
   // Wywołanie funkcji do aktualizacji listy nazw brawlerów na stronie
   updateBrawlerNameList();
-  
