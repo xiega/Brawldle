@@ -1,9 +1,9 @@
 import React from 'react';
-import VideoBackground from './components/VideoBackground';
-import MarqueeLogo from './components/MarqueeLogo';
-import Navigation from './components/Navigation';
-import GuessForm from './components/GuessForm';
-import ResultsTable from './components/ResultsTable';
+import VideoBackground from './components/Elements/VideoBackground';
+import MarqueeLogo from './components/Elements/MarqueeLogo';
+import Navigation from './components/Elements/Navigation';
+import GuessForm from './components/Elements/GuessForm';
+import ResultsTable from './components/Elements/ResultsTable';
 import { Provider } from "./Context";
 
 function App() {
@@ -13,15 +13,6 @@ function App() {
                 <VideoBackground />
                 <MarqueeLogo />
                 <Navigation />
-                <div className="article">
-                    <div className="input-container">
-                        <h1>Guess the Brawler</h1>
-                        <GuessForm />
-                    </div>
-                    <div className="table-container">
-                        <ResultsTable />
-                    </div>
-                </div>
             </Provider>
         </div>
     );

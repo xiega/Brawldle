@@ -11,6 +11,17 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  flex-direction: column;
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%; /* Ustawienie kontenera na środku ekranu */
+  left: 50%; /* Ustawienie kontenera na środku ekranu */
+  transform: translate(-50%, -50%); /* Przesunięcie kontenera na środku ekranu */
 }
 
 h1 {

@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { Context } from "../Context";
+import { Context } from "../../Context";
 
 const ResultsTable = () => {
     const { guesses } = useContext(Context);
