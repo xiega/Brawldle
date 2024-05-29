@@ -1,10 +1,13 @@
-import React, {ReactNode, useState, createContext} from "react";
+import React, { createContext, useState } from 'react';
 
-export const Context = createContext(null)
+export const Context = createContext(null);
 
-export const Provider = ({ children }: ReactNode ) => {
+export const Provider = ({ children }) => {
     const [guesses, setGuesses] = useState([]);
 
-
-    return <Context.Provider value={{ guesses, setGuesses }}>{children}</Context.Provider>
-}
+    return (
+        <Context.Provider value={{ guesses, setGuesses }}>
+            {children}
+        </Context.Provider>
+    );
+};

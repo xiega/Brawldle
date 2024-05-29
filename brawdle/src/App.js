@@ -12,16 +12,16 @@ function App() {
             <Provider>
                 <VideoBackground />
                 <MarqueeLogo />
-                    <Navigation />
-                    <div className="article">
-                        <div className="input-container">
-                            <h1>Guess the Brawler</h1>
-                            <GuessForm />
-                        </div>
-                        <div className="table-container">
-                            <ResultsTable />
-                        </div>
+                <Navigation />
+                <div className="article">
+                    <div className="input-container">
+                        <h1>Guess the Brawler</h1>
+                        <GuessForm />
                     </div>
+                    <div className="table-container">
+                        <ResultsTable />
+                    </div>
+                </div>
             </Provider>
         </div>
     );

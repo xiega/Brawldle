@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Context } from "../Context";
 import axios from "axios";
 
@@ -12,7 +12,7 @@ const apiClient = axios.create({
 const GuessForm = () => {
     const [guess, setGuess] = useState('');
     const [brawlers, setBrawlers] = useState([]);
-    const context = useContext(Context);
+    const { guesses, setGuesses } = useContext(Context);
 
     const handleInputChange = (event) => {
         setGuess(event.target.value);
@@ -22,9 +22,8 @@ const GuessForm = () => {
         event.preventDefault();
 
         const { data } = await apiClient.post('/guess', { name: guess });
-        let temp = context.guesses;
-        temp.push(data);
-        context.setGuesses(temp);
+        setGuesses([...guesses, data]);
+        setGuess(''); // Reset input
     };
 
     const handleOnStart = async () => {
@@ -51,7 +50,9 @@ const GuessForm = () => {
                         required
                     />
                     <datalist id="brawlerNames">
-                        {brawlers.map((brawler, index) => ( <option key={index} value={brawler}>{brawler}</option>))}
+                        {brawlers.map((brawler, index) => (
+                            <option key={index} value={brawler}>{brawler}</option>
+                        ))}
                     </datalist>
                 </div>
                 <div className="col-sm-ii">
