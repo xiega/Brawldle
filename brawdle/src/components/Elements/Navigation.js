@@ -32,19 +32,19 @@ const Navigation = () => {
             <nav>
                 <div className={`slider ${selected}`} />
 
-                <label style={{ zIndex: '100' }} className="home" htmlFor="home" onClick={() => handleRadioChange('home')}>
+                <label style={{zIndex: '100'}} className={`home ${selected === 'home' ? 'active' : ''}`} htmlFor="home">
                     <i className="fas fa-home"></i>Home
                 </label>
-                <label style={{ zIndex: '100' }} className="blog" htmlFor="blog" onClick={() => handleRadioChange('blog')}>
+                <label style={{zIndex: '100'}} className={`blog ${selected === 'blog' ? 'active' : ''}`} htmlFor="blog">
                     <i className="fas fa-blog"></i>Blog
                 </label>
-                <label style={{ zIndex: '100' }} className="code" htmlFor="code" onClick={() => handleRadioChange('code')}>
+                <label style={{zIndex: '100'}} className={`code ${selected === 'code' ? 'active' : ''}`} htmlFor="code">
                     <i className="fas fa-code"></i>Code
                 </label>
-                <label style={{ zIndex: '100' }} className="help" htmlFor="help" onClick={() => handleRadioChange('help')}>
+                <label style={{zIndex: '100'}} className={`help ${selected === 'help' ? 'active' : ''}`} htmlFor="help">
                     <i className="fas fa-envelope"></i>Help
                 </label>
-                <label style={{ zIndex: '100' }} className="about" htmlFor="about" onClick={() => handleRadioChange('about')}>
+                <label style={{zIndex: '100'}} className={`about ${selected === 'about' ? 'active' : ''}`} htmlFor="about">
                     <i className="fas fa-user"></i>About
                 </label>
             </nav>

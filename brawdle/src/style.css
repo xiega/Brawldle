@@ -256,6 +256,10 @@ nav label {
   z-index: 100; /* Zwiększenie z-index */
 }
 
+nav label.active {
+  color: white;
+}
+
 nav label:hover {
   background: rgba(167, 108, 0, 0.3);
 }
