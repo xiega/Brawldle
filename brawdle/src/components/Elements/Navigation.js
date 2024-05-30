@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
-import Brawlers from "./Brawlers-list";
-import '../Styles/style.css';
-import VideoBackground from './VideoBackground';
-import MarqueeLogo from './MarqueeLogo';
+import '../Styles/style-Navigation.css';
 import GuessForm from './GuessForm';
 import ResultsTable from './ResultsTable';
-import { Provider } from "../../Context";
 import BrawlerList from "./BrawlerList";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSkull } from '@fortawesome/free-solid-svg-icons';
+import '../Styles/style-Global.css';
 
 const Navigation = () => {
     const [selected, setSelected] = useState('home');

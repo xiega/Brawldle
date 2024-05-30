@@ -1,4 +1,6 @@
 import React from 'react';
+import '../Styles/style-MarqueeLogo.css';
+import '../Styles/style-Global.css';
 
 const MarqueeLogo = () => (
     <marquee className={"marquee"} behavior="alternate" scrollamount="20">

@@ -1,6 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Context } from "../../Context";
+import { Context } from "../context/Context";
 import axios from "axios";
+import Select from 'react-select';
+import '../Styles/style-GuessForm.css';
+import '../Styles/style-Global.css';
 
 const apiClient = axios.create({
     baseURL: 'http://localhost:4000/api',
@@ -14,8 +17,8 @@ const GuessForm = () => {
     const [brawlers, setBrawlers] = useState([]);
     const { guesses, setGuesses } = useContext(Context);
 
-    const handleInputChange = (event) => {
-        setGuess(event.target.value);
+    const handleInputChange = (newValue) => {
+        setGuess(newValue);
     };
 
     const handleSubmit = async (event) => {
@@ -36,24 +39,20 @@ const GuessForm = () => {
         handleOnStart();
     }, []);
 
+    const options = brawlers.map(brawler => ({ value: brawler, label: brawler }));
+
     return (
         <form id="guessForm" onSubmit={handleSubmit}>
             <div className="row-g-2">
                 <div className="col-sm-i">
-                    <input
-                        type="text"
-                        list="brawlerNames"
-                        id="brawlerName"
+                    <Select
+                        options={options}
+                        value={options.find(option => option.value === guess)}
+                        onChange={({ value }) => handleInputChange(value)}
                         placeholder="Enter brawler name"
-                        value={guess}
-                        onChange={handleInputChange}
+                        isSearchable
                         required
                     />
-                    <datalist id="brawlerNames">
-                        {brawlers.map((brawler, index) => (
-                            <option key={index} value={brawler}>{brawler}</option>
-                        ))}
-                    </datalist>
                 </div>
                 <div className="col-sm-ii">
                     <button type="submit" className="btn">Guess</button>

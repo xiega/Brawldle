@@ -1,5 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { Context } from "../../Context";
+import { Context } from "../context/Context";
+import '../Styles/style-ResultsTable.css';
+import '../Styles/style-Global.css';
 
 const ResultsTable = () => {
     const { guesses } = useContext(Context);

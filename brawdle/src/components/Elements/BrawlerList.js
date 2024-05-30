@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import '../Styles/style-Global.css';
 import '../Styles/style-BrawlerList.css';
 
 const apiClient = axios.create({
@@ -30,8 +31,18 @@ const BrawlerList = () => {
             <div className="brawler-list">
                 {brawlers.map((brawler, index) => (
                     <div key={index} className="brawler-item">
-                        <img src={brawler.image_url} alt={brawler.name} className="brawler-image" />
-                        <div className="brawler-name">{brawler.name}</div>
+                        <div className="flip-card-inner">
+                            <div className="flip-card-front">
+                                <img src={brawler.image_url} alt={brawler.name} className="brawler-image" />
+                                <div className="brawler-name">{brawler.name}</div>
+                            </div>
+                            <div className="flip-card-back">
+                                <div className="brawler-name-f">{brawler.name}</div>
+                                <div>Rarity: {brawler.rarity}</div>
+                                <div>Health: {brawler.base_health}</div>
+                                <div>Release: {brawler.release_year}</div>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>

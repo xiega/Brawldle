@@ -1,4 +1,6 @@
 import React from 'react';
+import '../Styles/style-VideoBackground.css';
+import '../Styles/style-Global.css';
 
 const VideoBackground = () => (
     <video autoPlay muted loop id="background-video">
