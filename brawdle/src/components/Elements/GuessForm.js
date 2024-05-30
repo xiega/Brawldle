@@ -4,6 +4,7 @@ import axios from "axios";
 import Select from 'react-select';
 import '../Styles/style-GuessForm.css';
 import '../Styles/style-Global.css';
+import JSConfetti from 'js-confetti'
 
 const apiClient = axios.create({
     baseURL: 'http://localhost:4000/api',
@@ -15,6 +16,7 @@ const apiClient = axios.create({
 const GuessForm = () => {
     const [guess, setGuess] = useState('');
     const [brawlers, setBrawlers] = useState([]);
+    const [error, setError] = useState(''); // State to track error message
     const { guesses, setGuesses } = useContext(Context);
 
     const handleInputChange = (newValue) => {
@@ -23,10 +25,25 @@ const GuessForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        const { data } = await apiClient.post('/guess', { name: guess });
-        setGuesses([...guesses, data]);
-        setGuess(''); // Reset input
+        try {
+            const { data } = await apiClient.post('/guess', { name: guess });
+            if (data.error) {
+                setError(data.error);
+            } else {
+                setGuesses([...guesses, data]);
+                setGuess(''); // Reset input
+                setError(''); // Reset error message
+                if (data.isWinner) {
+                    const jsConfetti = new JSConfetti()
+                    jsConfetti.addConfetti();
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 4000);
+                }
+            }
+        } catch (error) {
+            setError('An error occurred while submitting your guess. Please try again.');
+        }
     };
 
     const handleOnStart = async () => {
@@ -58,6 +75,7 @@ const GuessForm = () => {
                     <button type="submit" className="btn">Guess</button>
                 </div>
             </div>
+            {error && <div className="error-message">{error}</div>} {/* Display error message */}
         </form>
     );
 };

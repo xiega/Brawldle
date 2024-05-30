@@ -4,6 +4,7 @@ import '../Styles/style-Navigation.css';
 import GuessForm from './GuessForm';
 import ResultsTable from './ResultsTable';
 import BrawlerList from "./BrawlerList";
+import About from './AboutUs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSkull } from '@fortawesome/free-solid-svg-icons';
 import '../Styles/style-Global.css';
@@ -68,7 +69,7 @@ const NavigationWrapper = () => (
             <Route path="/brawlers" element={<BrawlerList />}/>
             <Route path="/code" element={<div>Code Page</div>}/>
             <Route path="/help" element={<div>Help Page</div>}/>
-            <Route path="/about" element={<div>About Page</div>}/>
+            <Route path="/about" element={<About />}/>
         </Routes>
     </Router>
 );

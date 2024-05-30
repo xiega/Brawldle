@@ -19,11 +19,10 @@ app.use(
   })
 );
 
-
 const router = express.Router();
 app.use("/api", router);
 
-// Funkcja do losowania brawlera z bazy danych
+// Function to get a random brawler from the database
 async function getRandomBrawler() {
   const count = await prisma.brawlers.count();
   const randomIndex = Math.floor(Math.random() * count);
@@ -55,48 +54,65 @@ router.get("/brawlers", async (req, res) => {
   }
 });
 
-// Endpoint do inicjalizacji gry
+// Endpoint to initialize the game
 router.get("/start", async (req, res) => {
-  selectedBrawler = await getRandomBrawler();
-  console.log(selectedBrawler);
-  res.json({ message: "Game started! Try to guess the brawler." });
+  try {
+    selectedBrawler = await getRandomBrawler();
+    console.log(selectedBrawler);
+    res.json({ message: "Game started! Try to guess the brawler." });
+  } catch (error) {
+    console.error("Error starting the game:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
-// Endpoint do sprawdzania zgadywanego brawlera
+// Endpoint to check the guessed brawler
 router.post("/guess", async (req, res) => {
-  const { name } = req.body;
-  const guessedBrawler = await prisma.brawlers.findFirst({
-    where: { name },
-  });
+  try {
+    const { name } = req.body;
+    const guessedBrawler = await prisma.brawlers.findFirst({
+      where: { name },
+    });
 
-  if (!guessedBrawler) {
-    return res.json({ error: "Brawler not found" });
+    if (!guessedBrawler) {
+      return res.status(404).json({ error: "Brawler not found" });
+    }
+
+    const isWinner = 
+    guessedBrawler.name === selectedBrawler.name &&
+    guessedBrawler.rarity === selectedBrawler.rarity &&
+    guessedBrawler.wallbreaker === selectedBrawler.wallbreaker &&
+    guessedBrawler.base_health === selectedBrawler.base_health &&
+    guessedBrawler.release_year === selectedBrawler.release_year;
+
+    const result = {
+      name: guessedBrawler.name === selectedBrawler.name,
+      rarity: guessedBrawler.rarity === selectedBrawler.rarity,
+      wallbreaker: guessedBrawler.wallbreaker === selectedBrawler.wallbreaker,
+      base_health: guessedBrawler.base_health === selectedBrawler.base_health,
+      release_year: guessedBrawler.release_year === selectedBrawler.release_year,
+    };
+
+    const comparisons = {
+      base_health:
+        guessedBrawler.base_health > selectedBrawler.base_health
+          ? "↓"
+          : guessedBrawler.base_health < selectedBrawler.base_health
+          ? "↑"
+          : "",
+      release_year:
+        guessedBrawler.release_year > selectedBrawler.release_year
+          ? "↓"
+          : guessedBrawler.release_year < selectedBrawler.release_year
+          ? "↑"
+          : "",
+    };
+
+    res.json({ result, guessedBrawler, comparisons, isWinner });
+  } catch (error) {
+    console.error("Error processing guess:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
-
-  const result = {
-    name: guessedBrawler.name === selectedBrawler.name,
-    rarity: guessedBrawler.rarity === selectedBrawler.rarity,
-    wallbreaker: guessedBrawler.wallbreaker === selectedBrawler.wallbreaker,
-    base_health: guessedBrawler.base_health === selectedBrawler.base_health,
-    release_year: guessedBrawler.release_year === selectedBrawler.release_year,
-  };
-
-  const comparisons = {
-    base_health:
-      guessedBrawler.base_health > selectedBrawler.base_health
-        ? "↓"
-        : guessedBrawler.base_health < selectedBrawler.base_health
-        ? "↑"
-        : "",
-    release_year:
-      guessedBrawler.release_year > selectedBrawler.release_year
-        ? "↓"
-        : guessedBrawler.release_year < selectedBrawler.release_year
-        ? "↑"
-        : "",
-  };
-
-  res.json({ result, guessedBrawler, comparisons });
 });
 
 const PORT = process.env.PORT || 4000;

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="icon" href="/media/logo.ico" type="image/x-icon">
+  <title>Guess the Brawler</title>
+</head>
+<body>
+  <video autoplay muted loop id="background-video">
+    <source src="/media/background.mp4" type="video/mp4">
+  </video>
+  <marquee behavior="alternate" scrollamount="20">
+    <marquee behavior="alternate" scrollamount="20" direction="down">
+      <img id="logo" src="/media/logo.png">
+    </marquee>
+  </marquee>
+  <div class="container">
+    <input type="radio" name="s" id="home" checked>
+    <input type="radio" name="s" id="blog">
+    <input type="radio" name="s" id="code">
+    <input type="radio" name="s" id="help">
+    <input type="radio" name="s" id="about">
+    <nav>
+      <div class="slider"></div>
+      <label class="home" for="home">
+      <i class="fas fa-home"></i>Home
+      </label>
+      <label class="blog" for="blog">
+      <i class="fas fa-blog"></i>Blog
+      </label>
+      <label class="code" for="code">
+        <i class="fas fa-code"></i>Code
+      </label>
+      <label class="help" for="help">
+        <i class="fas fa-envelope"></i>Help
+      </label>
+      <label class="about" for="about">
+        <i class="fas fa-user"></i>About
+      </label>
+    </nav>
+  </div>
+  <div class="article">
+    <div class="input-container">
+      <h1>Guess the Brawler</h1>
+      <form id="guessForm">
+        <div class="row-g-2">
+          <div class="col-sm-i">
+            <input type="text" list="brawlerNames" id="brawlerName" placeholder="Enter brawler name" required>
+            <datalist id="brawlerNames">
+              <!-- Lista nazw brawlerów zostanie wypełniona dynamicznie przy użyciu JavaScriptu -->
+            </datalist>
+          </div>
+          <div class="col-sm-ii">
+            <button type="submit" class="btn">Guess</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Brawler</th>
+            <th>Rarity</th>
+            <th>Wallbreaker</th>
+            <th>Base Health</th>
+            <th>Release Year</th>
+          </tr>
+        </thead>
+        <tbody id="result"></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+  <script src="guess.js"></script>
+  <script src="hint.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.about-container {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 2;
+    top: 20vh;
+}
+
+.about-us{
+    height: 60vh;
+    width: 90%;
+    background: white;
+    border-radius: 15px;
+    color: #4a4a4a;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s;
+}
+
+.about-us:hover {
+    transform: translateY(-5px);
+}
+
+
+.pic{
+    height: auto;
+    width:  15vw;
+    -webkit-clip-path: polygon(20% 0%, 80% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 86%, 0% 20%);
+    clip-path: polygon(20% 0%, 80% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 86%, 0% 20%);
+}
+
+.about-c{
+    width: 60vw;
+    max-width: 85%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.text{
+    width: 540px;
+}
+
+.text h2{
+    margin-top: 20px;
+    font-size: 90px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
+}
+
+.text h5{
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+span{
+    color: rgb(167, 108, 0);
+}
+
+.text p{
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 1px;
+}
+
+.data{
+    margin-top: 30px;
+}
+
+.hire{
+    font-size: 18px;
+    background: rgb(167, 108, 0);
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.hire:hover {
+    background-color: rgb(138, 90, 0);
+    transform: scale(1.15);
+    border: 1px solid rgb(138, 90, 0);
+}
+
+@media (max-width: 510px) {
+    .input-container, .table-container, td, .incorrect, .correct{
+        font-size: 8px; /* Zmniejszony rozmiar czcionki */
+        width: 80vw; /* Zmniejszona szerokość kontenerów */
+        padding: 5px;
+    }
+
+    .table-container {
+        width: 90vw;
+    }
+
+    .container {
+        width: 80%;
+    }
+
+    nav{
+        width: 100%;
+        font-size: 2px;
+    }
+
+    nav label {
+        visibility: hidden;
+    }
+
+    nav label i {
+        visibility: visible;
+    }
+
+    .about-container {
+        width: 90%
+    }
+
+    .pic{
+        display: none;
+    }
+
+    .text h2{
+        font-size: 2rem;
+
+    }
+
+    .text h5{
+        font-size: 1rem;
+    }
+
+    span{
+        color: #4070f4;
+    }
+
+    .text p{
+        font-size: 0.7rem;
+    }
+}
