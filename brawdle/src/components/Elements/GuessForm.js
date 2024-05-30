@@ -2,9 +2,11 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Context } from "../context/Context";
 import axios from "axios";
 import Select from 'react-select';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import '../Styles/style-GuessForm.css';
 import '../Styles/style-Global.css';
-import JSConfetti from 'js-confetti'
+import JSConfetti from 'js-confetti';
 
 const apiClient = axios.create({
     baseURL: 'http://localhost:4000/api',
@@ -12,6 +14,8 @@ const apiClient = axios.create({
         'Content-Type': 'application/json',
     },
 });
+
+const MySwal = withReactContent(Swal);
 
 const GuessForm = () => {
     const [guess, setGuess] = useState('');
@@ -28,13 +32,25 @@ const GuessForm = () => {
         try {
             const { data } = await apiClient.post('/guess', { name: guess });
             if (data.error) {
-                setError(data.error);
+                MySwal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: data.error,
+                    customClass: {
+                        confirmButton: 'swal2-confirm'
+                    },
+                    buttonsStyling: false,
+                    confirmButtonText: 'OK',
+                    customClass: {
+                        confirmButton: 'custom-confirm-button'
+                    }
+                });
             } else {
                 setGuesses([...guesses, data]);
                 setGuess(''); // Reset input
                 setError(''); // Reset error message
                 if (data.isWinner) {
-                    const jsConfetti = new JSConfetti()
+                    const jsConfetti = new JSConfetti();
                     jsConfetti.addConfetti();
                     setTimeout(function() {
                         window.location.reload();
@@ -42,7 +58,16 @@ const GuessForm = () => {
                 }
             }
         } catch (error) {
-            setError('An error occurred while submitting your guess. Please try again.');
+            MySwal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'There\'s no such brawler.',
+                customClass: {
+                    confirmButton: 'custom-confirm-button'
+                },
+                buttonsStyling: false,
+                confirmButtonText: 'OK'
+            });
         }
     };
 

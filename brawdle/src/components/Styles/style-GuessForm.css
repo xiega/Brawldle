@@ -6,6 +6,16 @@
     top: 20vh;
 }
 
+.custom-confirm-button {
+    background-color: orange !important;
+    border-color: orange !important;
+    color: white !important;
+    width: 60px;
+    height: 60px;
+    font-size: large;
+}
+
+
 .input-container {
     padding: 20px;
     margin: 20px auto;
