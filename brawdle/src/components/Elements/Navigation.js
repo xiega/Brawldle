@@ -39,7 +39,7 @@ const Navigation = () => {
                     <i className="fas fa-home"></i>Home
                 </label>
                 <label style={{zIndex: '100'}} className={`brawlers ${selected === 'brawlers' ? 'active' : ''}`} htmlFor="brawlers">
-                    <i className="fa-solid fa-skull"></i>Brawlers
+                    <i><FontAwesomeIcon icon={faSkull}/></i>Brawlers
                 </label>
                 <label style={{zIndex: '100'}} className={`code ${selected === 'code' ? 'active' : ''}`} htmlFor="code">
                     <i className="fas fa-code"></i>Code
