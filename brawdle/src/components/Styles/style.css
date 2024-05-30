@@ -182,6 +182,16 @@ th, td {
   top: 20vh;
 }
 
+.aside {
+  display: flex;
+  position: absolute;
+  z-index: 2;
+  flex-direction: column;
+  top: 20vh;
+  width: 60%;
+  margin: 0 auto;
+}
+
 .marquee {
   height: 100vh;
 }

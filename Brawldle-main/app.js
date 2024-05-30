@@ -34,6 +34,16 @@ async function getRandomBrawler() {
   return brawler[0];
 }
 
+router.get("/brawlers-list", async (req, res) => {
+  try {
+    const brawlers = await prisma.brawlers.findMany();
+    res.json(brawlers);
+  } catch (error) {
+    console.error("Error fetching brawlers:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 router.get("/brawlers", async (req, res) => {
   try {
     const brawlers = await prisma.brawlers.findMany();

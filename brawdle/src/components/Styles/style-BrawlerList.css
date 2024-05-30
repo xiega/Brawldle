@@ -1,0 +1,40 @@
+.brawler-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.brawler-item {
+    width: 23%; /* Domyślnie 2 kolumny na szerokich ekranach */
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.brawler-image {
+    width: 30%; /* Obraz będzie skalowany, aby zmieścić się wewnątrz kontenera */
+    height: auto; /* Ustawienie automatycznej wysokości, aby zachować proporcje obrazu */
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.brawler-name {
+    font-weight: bold;
+}
+
+/* Reguła dla mediów zapytań: zmiana na 2 kolumny, gdy szerokość ekranu spada poniżej 900px */
+@media (max-width: 900px) {
+    .brawler-item {
+        width: 48%; /* 2 kolumny na mniejszych ekranach */
+    }
+
+    .brawler-image {
+        width: 50%; /* Obraz będzie skalowany, aby zmieścić się wewnątrz kontenera */
+        height: auto; /* Ustawienie automatycznej wysokości, aby zachować proporcje obrazu */
+        object-fit: contain;
+        margin-bottom: 10px;
+    }
+}
