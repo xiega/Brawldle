@@ -134,20 +134,24 @@ input[type="radio"] {
     .slider.home {
         left: 0%;
     }
-    
+
     .slider.brawlers {
-        left: 21%;
+        left: 20%;
     }
-    
+
     .slider.code {
-        left: 43%;
+        left: 40%;
     }
-    
+
     .slider.help {
-        left: 61%;
+        left: 60%;
     }
-    
+
     .slider.about {
         left: 80%;
+    }
+
+    nav label {
+        width: 20%;
     }
 }

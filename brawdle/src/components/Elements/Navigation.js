@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import '../Styles/style-Navigation.css';
 import GuessForm from './GuessForm';
 import ResultsTable from './ResultsTable';
@@ -11,8 +11,19 @@ import { faSkull } from '@fortawesome/free-solid-svg-icons';
 import '../Styles/style-Global.css';
 
 const Navigation = () => {
-    const [selected, setSelected] = useState('home');
+    const [selected, setSelected] = useState('');
     const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        // Set the selected tab based on the current path
+        const path = location.pathname;
+        if (path === '/') setSelected('home');
+        else if (path === '/brawlers') setSelected('brawlers');
+        else if (path === '/code') setSelected('code');
+        else if (path === '/help') setSelected('help');
+        else if (path === '/about') setSelected('about');
+    }, [location.pathname]);
 
     const handleRadioChange = (id) => {
         setSelected(id);

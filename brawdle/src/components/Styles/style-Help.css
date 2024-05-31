@@ -1,114 +1,151 @@
 .aside-help {
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
     padding: 2em;
     background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
+    flex-direction: column;
     position: absolute;
     z-index: 2;
-    flex-direction: column;
     top: 20vh;
-    width: 60%;
-    margin: 0 auto;
-  }
-  
-  .aside-help h2 {
+    transition: all 0.3s ease-in-out;
+}
+
+.aside-help:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.aside-help h2 {
     text-align: center;
     margin-bottom: 1em;
     color: #333;
-  }
-  
-  .aside-help form {
+    font-size: 2em;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    color: #4a4a4a;
+}
+
+button {
+    margin: 0;
+    margin-top: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+}
+
+.aside-help form {
     display: flex;
     flex-direction: column;
-  }
-  
-  .aside-help label {
+}
+
+.aside-help label {
     margin-bottom: 0.5em;
     color: #666;
-  }
-  
-  .aside-help input,
-  .aside-help textarea {
-    padding: 0.5em;
-    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+.aside-help input,
+.aside-help textarea {
+    padding: 0.75em;
+    margin-bottom: 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.aside-help input:focus,
+.aside-help textarea:focus {
+    border-color: rgb(167, 108, 0);
+    outline: none;
+}
+
+/* Dodanie stylu dla checkboxa */
+.aside-help input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 1em;
-  }
-  
-  .aside-help button {
-    padding: 0.75em;
-    background-color: rgb(167, 108, 0);
-    border: none;
-    margin: 0;
-    border-radius: 4px;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .aside-help button:hover {
+}
+
+
+/* Dodanie efektu po zaznaczeniu checkboxa */
+.aside-help input[type="checkbox"]:checked {
+    background-color: rgb(167, 108, 0);
+}
+
+/* Stylowanie markera checkboxa */
+.aside-help input[type="checkbox"]::before {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+/* Dodanie animacji dla całego formularza */
+.aside-help input[type="text"],
+.aside-help textarea,
+.aside-help button,
+.aside-help input[type="checkbox"] {
+    transition: all 0.3s ease;
+}
+
+/* Animacja dla buttona */
+.aside-help button:hover {
     background-color: rgb(138, 90, 0);
-  }
-  
-  @media (max-width: 510px) {
+    transform: translateY(-2px);
+}
+
+.aside-help button:active {
+    transform: translateY(0);
+}
+
+.error-border {
+    border: 2px solid orange;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: -0.5em;
+    margin-bottom: 1em;
+}
+
+#consent {
+    margin: 0;
+    margin-right: 10px;
+}
+
+.check {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 510px) {
     .aside-help {
         width: 90%;
+        padding: 1.5em;
     }
 
-    .input-container, .table-container, td, .incorrect, .correct{
-        font-size: 8px; /* Zmniejszony rozmiar czcionki */
-        width: 80vw; /* Zmniejszona szerokość kontenerów */
-        padding: 5px;
+    .aside-help h2 {
+        font-size: 1.5em;
     }
 
-    .table-container {
-        width: 90vw;
+    .aside-help input,
+    .aside-help textarea {
+        padding: 0.5em;
     }
 
-    .container {
-        width: 80%;
-    }
-
-    nav{
-        width: 100%;
-        font-size: 2px;
-    }
-
-    nav label {
-        visibility: hidden;
-    }
-
-    nav label i {
-        visibility: visible;
-    }
-
-    .about-container {
-        width: 90%
-    }
-
-    .pic{
-        display: none;
-    }
-
-    .text h2{
-        font-size: 2rem;
-
-    }
-
-    .text h5{
-        font-size: 1rem;
-    }
-
-    span{
-        color: #4070f4;
-    }
-
-    .text p{
-        font-size: 0.7rem;
+    .aside-help button {
+        padding: 0.5em;
+        font-size: 0.9em;
     }
 }

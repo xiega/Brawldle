@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS brawl_stars;
+CREATE DATABASE brawl_stars;
+USE brawl_stars;
+
 CREATE TABLE brawlers (
     id INT PRIMARY KEY,
     name VARCHAR(50),

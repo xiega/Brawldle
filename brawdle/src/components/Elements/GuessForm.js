@@ -31,21 +31,6 @@ const GuessForm = () => {
         event.preventDefault();
         try {
             const { data } = await apiClient.post('/guess', { name: guess });
-            if (data.error) {
-                MySwal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: data.error,
-                    customClass: {
-                        confirmButton: 'swal2-confirm'
-                    },
-                    buttonsStyling: false,
-                    confirmButtonText: 'OK',
-                    customClass: {
-                        confirmButton: 'custom-confirm-button'
-                    }
-                });
-            } else {
                 setGuesses([...guesses, data]);
                 setGuess(''); // Reset input
                 setError(''); // Reset error message
@@ -56,7 +41,6 @@ const GuessForm = () => {
                         window.location.reload();
                     }, 4000);
                 }
-            }
         } catch (error) {
             MySwal.fire({
                 icon: 'error',
@@ -65,7 +49,6 @@ const GuessForm = () => {
                 customClass: {
                     confirmButton: 'custom-confirm-button'
                 },
-                buttonsStyling: false,
                 confirmButtonText: 'OK'
             });
         }
