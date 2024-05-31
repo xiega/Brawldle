@@ -1,0 +1,114 @@
+.aside-help {
+    width: 50%;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    position: absolute;
+    z-index: 2;
+    flex-direction: column;
+    top: 20vh;
+    width: 60%;
+    margin: 0 auto;
+  }
+  
+  .aside-help h2 {
+    text-align: center;
+    margin-bottom: 1em;
+    color: #333;
+  }
+  
+  .aside-help form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .aside-help label {
+    margin-bottom: 0.5em;
+    color: #666;
+  }
+  
+  .aside-help input,
+  .aside-help textarea {
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+  
+  .aside-help button {
+    padding: 0.75em;
+    background-color: rgb(167, 108, 0);
+    border: none;
+    margin: 0;
+    border-radius: 4px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .aside-help button:hover {
+    background-color: rgb(138, 90, 0);
+  }
+  
+  @media (max-width: 510px) {
+    .aside-help {
+        width: 90%;
+    }
+
+    .input-container, .table-container, td, .incorrect, .correct{
+        font-size: 8px; /* Zmniejszony rozmiar czcionki */
+        width: 80vw; /* Zmniejszona szerokość kontenerów */
+        padding: 5px;
+    }
+
+    .table-container {
+        width: 90vw;
+    }
+
+    .container {
+        width: 80%;
+    }
+
+    nav{
+        width: 100%;
+        font-size: 2px;
+    }
+
+    nav label {
+        visibility: hidden;
+    }
+
+    nav label i {
+        visibility: visible;
+    }
+
+    .about-container {
+        width: 90%
+    }
+
+    .pic{
+        display: none;
+    }
+
+    .text h2{
+        font-size: 2rem;
+
+    }
+
+    .text h5{
+        font-size: 1rem;
+    }
+
+    span{
+        color: #4070f4;
+    }
+
+    .text p{
+        font-size: 0.7rem;
+    }
+}

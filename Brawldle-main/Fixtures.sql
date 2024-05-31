@@ -8,6 +8,15 @@ CREATE TABLE brawlers (
     image_url VARCHAR(255)
 );
 
+CREATE TABLE help_requests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    issue VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+);
+
 INSERT INTO brawlers (id, name, rarity, wallbreaker, base_health, release_year, image_url) VALUES
 (1, 'Shelly', 'Common', 1, 3600, 2018, 'https://cdn-fankit.brawlify.com/shelly_pin.png'),
 (2, 'Colt', 'Common', 0, 2800, 2018, 'https://cdn-fankit.brawlify.com/colt_pin.png'),

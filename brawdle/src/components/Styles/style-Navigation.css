@@ -130,4 +130,24 @@ input[type="radio"] {
     nav label i {
         visibility: visible;
     }
+
+    .slider.home {
+        left: 0%;
+    }
+    
+    .slider.brawlers {
+        left: 21%;
+    }
+    
+    .slider.code {
+        left: 43%;
+    }
+    
+    .slider.help {
+        left: 61%;
+    }
+    
+    .slider.about {
+        left: 80%;
+    }
 }

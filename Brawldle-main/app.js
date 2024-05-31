@@ -115,6 +115,25 @@ router.post("/guess", async (req, res) => {
   }
 });
 
+router.post('/help', async (req, res) => {
+  const { name, email, issue, description } = req.body;
+  try {
+    console.log("Received request:", { name, email, issue, description });
+    const newHelpRequest = await prisma.help_requests.create({
+      data: {
+        name,
+        email,
+        issue,
+        description,
+      },
+    });
+    res.status(200).json(newHelpRequest);
+  } catch (error) {
+    console.error('Error creating help request:', error);
+    res.status(500).json({ error: 'Error creating help request' });
+  }
+});
+
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
