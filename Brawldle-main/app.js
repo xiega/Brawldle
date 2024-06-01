@@ -142,3 +142,4 @@ const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Serwer działa na porcie ${PORT}`);
 });
+module.exports = app; // zeby testy działałay poprawnie
