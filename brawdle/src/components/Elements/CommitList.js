@@ -46,7 +46,7 @@ const GitHubCommits = () => {
 
                 setCommits(formattedCommits); // Ustawienie stanu z sformatowanymi commitami
             } catch (error) {
-                console.error("Błąd pobierania commitów:", error);
+                console.error("Error while downloading commits:", error);
             }
         };
         fetchCommits(); // Wywołanie funkcji pobierającej commitów
@@ -59,7 +59,7 @@ const GitHubCommits = () => {
 
     return (
         <div className="container1">
-            <h1 className="h1-commits">Lista Commitów</h1>
+            <h1 className="h1-commits">Commit List</h1>
             <ul className="commit-list">
                 {commits.map((commit) => (
                     <li key={commit.sha} className={`commit-item ${expandedCommit === commit ? 'expanded' : ''}`}>

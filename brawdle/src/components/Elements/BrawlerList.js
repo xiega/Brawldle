@@ -42,9 +42,9 @@ const BrawlerList = () => {
                             {/* Tylna strona karty */}
                             <div className="flip-card-back">
                                 <div className="brawler-name-f">{brawler.name}</div>
-                                <div>Rzadkość: {brawler.rarity}</div>
-                                <div>Zdrowie: {brawler.base_health}</div>
-                                <div>Rok wydania: {brawler.release_year}</div>
+                                <div>Rarity: <b>{brawler.rarity}</b></div>
+                                <div>Base health: <b>{brawler.base_health}</b></div>
+                                <div>Release year: <b>{brawler.release_year}</b></div>
                             </div>
                         </div>
                     </div>

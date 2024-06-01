@@ -10,7 +10,7 @@
     position: absolute;
     max-width: 800px;
     z-index: 2;
-    top: 20vh;
+    top: 15vh;
     transition: all 0.3s ease-in-out;
     font-family: 'Poppins', sans-serif;
 }
