@@ -48,9 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
   "jest": {
-  "setupFiles": ["./jest.setup.js"]
-}
-
+    "setupFiles": ["./jest.setup.js"]
+  }
 }
