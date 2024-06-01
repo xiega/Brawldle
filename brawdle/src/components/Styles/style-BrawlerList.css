@@ -6,7 +6,7 @@
     top: 20vh;
     width: 60%;
     margin: 0 auto;
-}
+    font-family: 'Poppins', sans-serif;}
 
 .brawler-list {
     display: flex;
@@ -30,7 +30,7 @@
     transition: all 0.3s ease;
     position: relative;
     cursor: pointer;
-    overflow: hidden; /* Ukryj nadmiarowy tekst */
+    overflow: hidden;
 }
 
 .brawler-item:hover {
@@ -40,9 +40,9 @@
 }
 
 .brawler-image {
-    width: 50%; /* Zmiana szerokości obrazka */
-    height: auto; /* Ustawienie stałej wysokości dla obrazka */
-    object-fit: cover; /* Dostosowanie obrazu do kontenera */
+    width: 50%;
+    height: auto;
+    object-fit: cover;
     margin-bottom: 10px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -50,17 +50,16 @@
 
 .brawler-name {
     font-weight: bold;
-    height: 2.5em; /* Ustawienie wysokości dla nazwy */
-    overflow: hidden; /* Ukrycie nadmiarowego tekstu */
+    height: 2.5em;
+    overflow: hidden;
 }
 
 .brawler-name-f {
     font-weight: bold;
-    height: 2.5em; /* Ustawienie wysokości dla nazwy */
-    overflow: hidden; /* Ukrycie nadmiarowego tekstu */
+    height: 2.5em;
+    overflow: hidden;
 }
 
-/* Dodanie stylów dla odwróconej karty */
 .brawler-item .flip-card-inner {
     position: absolute;
     width: 100%;
@@ -98,16 +97,16 @@
 
 @media (min-width: 700px) {
     .input-container, .table-container, td, .incorrect, .correct{
-        font-size: 16px; /* Domyślny rozmiar czcionki */
-        width: 90vw; /* Domyślna szerokość kontenerów */
+        font-size: 16px;
+        width: 90vw;
     }
 }
 
 @media (max-width: 699px) {
     .input-container, .table-container, td, .incorrect, .correct{
-        font-size: 11px; /* Zmniejszony rozmiar czcionki */
+        font-size: 11px;
         width: 80vw;
-        padding: 10px; /* Zmniejszona szerokość kontenerów */
+        padding: 10px;
     }
 
     nav{
@@ -117,8 +116,8 @@
 
 @media (max-width: 510px) {
     .input-container, .table-container, td, .incorrect, .correct{
-        font-size: 8px; /* Zmniejszony rozmiar czcionki */
-        width: 80vw; /* Zmniejszona szerokość kontenerów */
+        font-size: 8px;
+        width: 80vw;
         padding: 5px;
     }
 
@@ -144,13 +143,13 @@
     }
 
     .brawler-list {
-        justify-content: space-between; /* Rozłożenie elementów na szerokość */
-        gap: 20px; /* Odstęp między kolumnami */
+        justify-content: space-between;
+        gap: 20px;
     }
 
     .brawler-item {
-        width: calc(50% - 10px); /* Dwie kolumny */
-        margin-bottom: 20px; /* Mniejszy odstęp między elementami */
+        width: calc(50% - 10px);
+        margin-bottom: 20px;
     }
 
     .aside {

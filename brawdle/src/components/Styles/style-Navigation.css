@@ -6,6 +6,7 @@
     top: 20px;
     width: 100%;
     z-index: 5;
+    font-family: 'Poppins', sans-serif;
 }
 
 nav {
@@ -14,7 +15,7 @@ nav {
     border-radius: 5px;
     display: flex;
     text-align: center;
-    position: relative; /* Dodajemy position: relative; */
+    position: relative;
     background: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
@@ -31,7 +32,7 @@ nav label {
     position: relative;
     cursor: pointer;
     transition: all 0.3s ease;
-    z-index: 100; /* Zwiększenie z-index */
+    z-index: 100;
 }
 
 nav label.active {
@@ -47,7 +48,7 @@ nav label i {
 }
 
 nav .slider {
-    position: absolute; /* Ustawienie position na absolute */
+    position: absolute;
     height: 120%;
     top: -10%;
     width: 20%;
@@ -58,7 +59,6 @@ nav .slider {
     z-index: 1;
 }
 
-/* Dodajemy styl dla klasy .slider dla każdego z zaznaczonych radiobuttonów */
 .slider.home {
     left: 0%;
 }
@@ -79,23 +79,22 @@ nav .slider {
     left: 80%;
 }
 
-/* Ukrywamy radiobuttony */
 input[type="radio"] {
     display: none;
 }
 
 @media (min-width: 700px) {
     .input-container, .table-container, td, .incorrect, .correct{
-        font-size: 16px; /* Domyślny rozmiar czcionki */
-        width: 90vw; /* Domyślna szerokość kontenerów */
+        font-size: 16px;
+        width: 90vw;
     }
 }
 
 @media (max-width: 699px) {
     .input-container, .table-container, td, .incorrect, .correct{
-        font-size: 11px; /* Zmniejszony rozmiar czcionki */
+        font-size: 11px;
         width: 80vw;
-        padding: 10px; /* Zmniejszona szerokość kontenerów */
+        padding: 10px;
     }
 
     nav{
@@ -105,8 +104,8 @@ input[type="radio"] {
 
 @media (max-width: 510px) {
     .input-container, .table-container, td, .incorrect, .correct{
-        font-size: 8px; /* Zmniejszony rozmiar czcionki */
-        width: 80vw; /* Zmniejszona szerokość kontenerów */
+        font-size: 8px;
+        width: 80vw;
         padding: 5px;
     }
 

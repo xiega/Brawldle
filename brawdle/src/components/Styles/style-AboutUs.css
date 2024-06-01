@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 .about-container {
@@ -14,6 +13,7 @@
     flex-direction: column;
     z-index: 2;
     top: 20vh;
+    font-family: 'Poppins', sans-serif;
 }
 
 .about-us{
@@ -99,8 +99,8 @@ span{
 
 @media (max-width: 510px) {
     .input-container, .table-container, td, .incorrect, .correct{
-        font-size: 8px; /* Zmniejszony rozmiar czcionki */
-        width: 80vw; /* Zmniejszona szerokość kontenerów */
+        font-size: 8px;
+        width: 80vw;
         padding: 5px;
     }
 

@@ -145,7 +145,7 @@ const HelpForm = () => {
             </div>
           </label>
 
-          <button type="submit">Submit</button>
+          <button type="submit" className={'button'}>Submit</button>
         </form>
       </div>
   );

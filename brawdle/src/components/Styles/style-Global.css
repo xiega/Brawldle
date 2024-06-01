@@ -16,16 +16,16 @@
 
 @media (min-width: 700px) {
   .input-container, .table-container, td, .incorrect, .correct{
-      font-size: 16px; /* Domyślny rozmiar czcionki */
-      width: 90vw; /* Domyślna szerokość kontenerów */
+      font-size: 16px;
+      width: 90vw;
   }
 }
 
 @media (max-width: 699px) {
   .input-container, .table-container, td, .incorrect, .correct{
-      font-size: 11px; /* Zmniejszony rozmiar czcionki */
+      font-size: 11px;
       width: 80vw;
-      padding: 10px; /* Zmniejszona szerokość kontenerów */
+      padding: 10px;
   }
 
   nav{
@@ -35,8 +35,8 @@
 
 @media (max-width: 510px) {
     .input-container, .table-container, td, .incorrect, .correct{
-        font-size: 8px; /* Zmniejszony rozmiar czcionki */
-        width: 80vw; /* Zmniejszona szerokość kontenerów */
+        font-size: 8px;
+        width: 80vw;
         padding: 5px;
     }
 

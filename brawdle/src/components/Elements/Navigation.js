@@ -6,17 +6,19 @@ import ResultsTable from './ResultsTable';
 import BrawlerList from "./BrawlerList";
 import About from './AboutUs';
 import HelpForm from './HelpForm';
+import GitHubCommits from './CommitList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSkull } from '@fortawesome/free-solid-svg-icons';
 import '../Styles/style-Global.css';
 
 const Navigation = () => {
+    // Stan do śledzenia aktualnie wybranej zakładki
     const [selected, setSelected] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
 
     useEffect(() => {
-        // Set the selected tab based on the current path
+        // Ustawienie wybranej zakładki na podstawie bieżącej ścieżki
         const path = location.pathname;
         if (path === '/') setSelected('home');
         else if (path === '/brawlers') setSelected('brawlers');
@@ -25,6 +27,7 @@ const Navigation = () => {
         else if (path === '/about') setSelected('about');
     }, [location.pathname]);
 
+    // Obsługa zmiany zakładki
     const handleRadioChange = (id) => {
         setSelected(id);
         if (id === 'home') navigate('/');
@@ -35,16 +38,21 @@ const Navigation = () => {
     };
 
     return (
+        // Kontener nawigacji
         <div className="container">
+            {/* Inputy radio dla każdej zakładki */}
             <input type="radio" name="s" id="home" checked={selected === 'home'} onChange={() => handleRadioChange('home')} />
             <input type="radio" name="s" id="brawlers" checked={selected === 'brawlers'} onChange={() => handleRadioChange('brawlers')} />
             <input type="radio" name="s" id="code" checked={selected === 'code'} onChange={() => handleRadioChange('code')} />
             <input type="radio" name="s" id="help" checked={selected === 'help'} onChange={() => handleRadioChange('help')} />
             <input type="radio" name="s" id="about" checked={selected === 'about'} onChange={() => handleRadioChange('about')} />
 
+            {/* Nawigacja */}
             <nav>
+                {/* Pasek przesuwający się, który wskazuje aktualnie wybraną zakładkę */}
                 <div className={`slider ${selected}`} />
 
+                {/* Zakładki nawigacji */}
                 <label style={{zIndex: '100'}} className={`home ${selected === 'home' ? 'active' : ''}`} htmlFor="home">
                     <i className="fas fa-home"></i>Home
                 </label>
@@ -65,10 +73,12 @@ const Navigation = () => {
     );
 };
 
+// Komponent zawierający nawigację i trasy
 const NavigationWrapper = () => (
     <Router>
         <Navigation />
         <Routes>
+            {/* Trasy dla poszczególnych ścieżek */}
             <Route path="/" element={<div className="article">
                 <div className="input-container">
                     <h1>Guess the Brawler</h1>
@@ -79,7 +89,7 @@ const NavigationWrapper = () => (
                 </div>
             </div>}/>
             <Route path="/brawlers" element={<BrawlerList />}/>
-            <Route path="/code" element={<div>Code Page</div>}/>
+            <Route path="/code" element={<GitHubCommits />}/>
             <Route path="/help" element={<HelpForm />}/>
             <Route path="/about" element={<About />}/>
         </Routes>
