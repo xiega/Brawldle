@@ -50,7 +50,7 @@ const GuessForm = () => {
             MySwal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Nie ma takiego Brawlera.',
+                text: 'There is no such brawler.',
                 customClass: {
                     confirmButton: 'custom-confirm-button'
                 },
