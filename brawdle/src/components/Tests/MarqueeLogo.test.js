@@ -1,15 +1,15 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import MarqueeLogo from './MarqueeLogo';
+import MarqueeLogo from '../Elements/MarqueeLogo';
 
 describe('MarqueeLogo Component', () => {
   it('should render the MarqueeLogo component', () => {
     render(<MarqueeLogo />);
 
     // Check if the marquee elements are in the document
-    const outerMarquee = document.querySelector('marquee.marquee');
-    const innerMarquee = outerMarquee.querySelector('marquee.marquee');
+    const outerMarquee = screen.getByTestId('outer-marquee');
+    const innerMarquee = screen.getByTestId('inner-marquee');
 
     expect(outerMarquee).toBeInTheDocument();
     expect(innerMarquee).toBeInTheDocument();

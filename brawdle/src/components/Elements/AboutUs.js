@@ -5,7 +5,7 @@ const AboutUs = () => {
     return (
         <div className="about-container">
             {/* Sekcja o Xiega */}
-            <section className="about-us">
+            <section className="about-us" data-testid="about-section">
                 <div className="about-c">
                     {/* Obrazek przedstawiający Xiega */}
                     <img src={`${process.env.PUBLIC_URL}/media/chad.png`} alt="GigaChad" className={'pic'}/>
@@ -21,7 +21,7 @@ const AboutUs = () => {
                 </div>
             </section>
             {/* Sekcja o DajWaj */}
-            <section className="about-us">
+            <section className="about-us" data-testid="about-section">
                 <div className="about-c">
                     <div className="text">
                         <h2>DajWaj</h2>
@@ -37,7 +37,7 @@ const AboutUs = () => {
                 </div>
             </section>
             {/* Sekcja o Dzilnoreq */}
-            <section className="about-us">
+            <section className="about-us" data-testid="about-section">
                 <div className="about-c">
                     {/* Obrazek przedstawiający Dzilnoreq */}
                     <img src={`${process.env.PUBLIC_URL}/media/elon.png`} alt="Elon" className={'pic'}/>
