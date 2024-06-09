@@ -8,6 +8,7 @@ import '../Styles/style-GuessForm.css';
 import '../Styles/style-Global.css';
 import JSConfetti from 'js-confetti';
 
+
 // Utworzenie klienta Axios z podstawowym URL i nagłówkami
 const apiClient = axios.create({
     baseURL: 'http://localhost:4000/api',
