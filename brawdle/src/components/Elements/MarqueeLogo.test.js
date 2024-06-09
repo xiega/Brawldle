@@ -8,8 +8,8 @@ describe('MarqueeLogo Component', () => {
     render(<MarqueeLogo />);
 
     // Check if the marquee elements are in the document
-    const outerMarquee = screen.getByRole('marquee', { hidden: true });
-    const innerMarquee = outerMarquee.querySelector('marquee');
+    const outerMarquee = document.querySelector('marquee.marquee');
+    const innerMarquee = outerMarquee.querySelector('marquee.marquee');
 
     expect(outerMarquee).toBeInTheDocument();
     expect(innerMarquee).toBeInTheDocument();

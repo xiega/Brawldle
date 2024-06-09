@@ -23,6 +23,7 @@
     "react-toastify": "^10.0.5",
     "sweetalert2": "^11.11.0",
     "sweetalert2-react-content": "^5.0.7",
+    "util": "^0.12.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -49,7 +50,12 @@
       "last 1 safari version"
     ]
   },
-  "jest": {
-    "setupFiles": ["./jest.setup.js"]
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "babel-jest": "^29.7.0",
+    "esm": "^3.2.25",
+    "msw": "^2.3.1"
   }
 }
