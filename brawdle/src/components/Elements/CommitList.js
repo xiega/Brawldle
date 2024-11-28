@@ -10,7 +10,7 @@ const GitHubCommits = () => {
 
     useEffect(() => {
         // Utwórz nowy obiekt Octokit z autoryzacją
-        
+
         // Funkcja pobierająca listę commitów z GitHuba
         const fetchCommits = async () => {
             try {
