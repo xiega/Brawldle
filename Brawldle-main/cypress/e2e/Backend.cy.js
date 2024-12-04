@@ -1,8 +1,7 @@
 describe('Brawldle API Tests', () => {
-  const apiUrl = 'http://localhost:4000/api'; // Upewnij się, że serwer jest uruchomiony na tym porcie
+  const apiUrl = 'http://localhost:4000/api';
 
   before(() => {
-    // Możesz dodać kod do resetowania bazy danych lub innych przygotowań, jeśli to konieczne
   });
 
   it('should get a list of all brawlers', () => {
